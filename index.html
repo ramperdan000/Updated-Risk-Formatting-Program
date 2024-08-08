@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Risk Record Formatter</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body id="body">
+  <h1>Risk Summary Formatting</h1>
+  <br>
+  <form>
+  <label>Primary Hazard</label>
+    <select id="RSPH">
+        <option value="N/A">N/A</option>
+        <option value="Altered Gravity">Altered Gravity</option>
+        <option value="Radiation">Radiation</option>
+        <option value="Distance from Earth">Distance from Earth</option>
+        <option value="Isolation and Containment">Isolation and Containment</option>
+        <option value="Hostile Closed Environment">Hostile Closed Environment</option>
+        </select>
+        <div id="RSSHS">
+
+        </div>
+    <div id = "hazardsButtonDiv">
+      <br>
+      <button type="button" onclick="createSecondaryHazard('RSPH')">Add Secondary Hazard</button>
+      
+    </div> 
+    <br>
+  <p>CMs Prevention </p>
+    <textarea cols="50" type="text" id="RSCMP"></textarea>
+  <p>CMs Monitoring</p>
+  <textarea cols="50" type="text" id="RSCMM"></textarea>
+  <p>CMs Intervention</p>
+    <textarea cols="50" type="text" id="RSCMI"></textarea>
+  <p>Contributing Factors</p>
+    <textarea cols="50" type="text" id="RSCF"></textarea>
+  <p>Present State of Knowledge </p>
+  <textarea cols="50" type="text" id="RSSK"></textarea>
+  <h3>Gaps in Knowledge </h3>
+    <p>Operations</p>
+    <textarea cols="50" type="text" id="RSGO"></textarea>
+    <p>Long Term Health</p>
+    <textarea cols="50" type="text" id="RSGLTH"></textarea>
+  <hr style="margin: 2em auto;height: 5px; background-color: #6ebbff; border: none;">
+  <h1>Assumptions</h1>
+  <br>
+  <form>
+    <h2>Low Earth Orbit</h2>
+      <h3>Short (< 30 d)</h3>
+        <textarea cols="50" type="text" id="ALEOS"></textarea>
+      <h3>Long (30 d - 1 yr)</h3>
+        <textarea cols="50" type="text" id="ALEOL"> </textarea>
+    <h2>Lunar Orbit</h2>
+      <h3>Short (< 30 d)</h3>
+        <textarea cols="50" type="text" id="ALOS"></textarea>
+      <h3>Long (30 d - 1 yr)</h3>
+        <textarea cols="50" type="text" id="ALOL"> </textarea>
+    <h2>Lunar Orbit + Surface</h2>
+      <h3>Short (< 30 d)</h3>
+        <textarea cols="50" type="text" id="ALOSS"></textarea>
+      <h3>Long (30 d - 1 yr)</h3>
+        <textarea cols="50" type="text" id="ALOSL"> </textarea>
+    <h2>Mars</h2>
+      <h3>Prepatory (< 1 year)</h3>
+        <textarea cols="50" type="text" id="AMPr"></textarea>
+      <h3>Long (730 - 1224 days)</h3>
+        <textarea cols="50" type="text" id="AMPl"></textarea>
+    <br>
+    <h2>Counter Measures In Use</h2>
+    <h4>Prevention</h4>
+    <textarea cols="50" type="text" id="ACMP"></textarea>
+    <h4>Monitoring</h4>
+    <textarea cols="50" type="text" id="ACMM"></textarea>
+    <h4>Intervention</h4>
+    <textarea cols="50" type="text" id="ACMI"></textarea>
+    <!-- <h2>Additional Counter Measures</h2>
+      <div id=ALxCAE></div>
+ <div id="additionalCounterMeasuresButtonDiv">
+      <br>
+      <button type=button onclick="createAdditionalCounterMeasures()">Add additional Counter Measures</button>
+      
+    </div> -->
+   
+  </form>
+  <hr style="margin: 2em auto;height: 5px; background-color: #6ebbff; border: none;">
+  <h1>Risk Postures Formatting</h1>
+  <br>
+  
+  <form>
+    <h2>Low Earth Orbit</h2>
+      <h3>Short (< 30 d)</h3>
+        <h4>In Mission Operations</h4>
+          <label >LxC</label>
+            <select id="LEOSIMOLxC">
+    <option value="1x1">1x1</option>
+      <option value="1x2">1x2</option>
+      <option value="1x3">1x3</option>
+      <option value="1x4">1x4</option>
+      <option value="1x5">1x5</option>
+      <option value="2x1">2x1</option>
+      <option value="2x2">2x2</option>
+      <option value="2x3">2x3</option>
+      <option value="2x4">2x4</option>
+      <option value="2x5">2x5</option>
+      <option value="3x1">3x1</option>
+      <option value="3x2">3x2</option>
+      <option value="3x3">3x3</option>
+      <option value="3x4">3x4</option>
+      <option value="3x5">3x5</option>
+      <option value="4x1">4x1</option>
+      <option value="4x2">4x2</option>
+      <option value="4x3">4x3</option>
+      <option value="4x4">4x4</option>
+      <option value="4x5">4x5</option>
+      <option value="5x1">5x1</option>
+      <option value="5x2">5x2</option>
+      <option value="5x3">5x3</option>
+      <option value="5x4">5x4</option>
+      <option value="5x5">5x5</option>
+    </select>
+          <br><br>
+            <label>Risk Disposition</label>
+            <select id="LEOSIMOLxCL">
+              <option value="Accepted">Accepted</option>
+              <option value="Accepted With Monitoring">Accepted With Monitoring</option>
+              <option value="Accepted with Optimization">Accepted with Optimization</option>
+              <option value="Requires Mitigation">Requires Mitigation</option>
+              <option value="Requires Mitigation/Standard Refinement">Requires Mitigation/Standard Refinement</option>
+              <option value="Requires Characterization">Requires Characterization</option>
+              <option value="N/A">N/A</option>
+            </select>
+            <p>LxC Driver for Likelihood </p>
+              <textarea cols="50" type="text" id="LEOSIMOLxCDL" ></textarea>
+            <p>LxC Driver for Consequences</p>
+              <textarea cols="50" type="text" id="LEOSIMOLxCDC"></textarea>
+            <p>Rationale for Risk Disposition</p>
+              <textarea cols="50" type="text" id="LEOSIMORRD"></textarea>
+            <p>DRM Specific Assumptions</p>
+              <textarea cols="50" type="text" id="LEOSIMODSA"></textarea>
+            <br><br>  
+            <label>Level of Evidence (LOE)</label>
+              <select id="LEOSIMOLxCLoE">
+                <option value="1 - Strong">1-Strong</option>
+                <option value="2 - Moderate">2-Moderate</option>
+                <option value="3 - Weak">3-Weak</option>
+                <option value="4 - Speculative">4-Speculative</option>
+              </select>
+    <br><br><br>
+        
+        
+        <h2>Low Earth Orbit</h2>
+          <h3>Short (< 30 d)</h3>
+          
+        <h4>Long Term Health</h4>
+          <label >LxC</label>
+          <select id="LEOSLTHLxC">
+    <option value="1x1">1x1</option>
+      <option value="1x2">1x2</option>
+      <option value="1x3">1x3</option>
+      <option value="1x4">1x4</option>
+      <option value="1x5">1x5</option>
+      <option value="2x1">2x1</option>
+      <option value="2x2">2x2</option>
+      <option value="2x3">2x3</option>
+      <option value="2x4">2x4</option>
+      <option value="2x5">2x5</option>
+      <option value="3x1">3x1</option>
+      <option value="3x2">3x2</option>
+      <option value="3x3">3x3</option>
+      <option value="3x4">3x4</option>
+      <option value="3x5">3x5</option>
+      <option value="4x1">4x1</option>
+      <option value="4x2">4x2</option>
+      <option value="4x3">4x3</option>
+      <option value="4x4">4x4</option>
+      <option value="4x5">4x5</option>
+      <option value="5x1">5x1</option>
+      <option value="5x2">5x2</option>
+      <option value="5x3">5x3</option>
+      <option value="5x4">5x4</option>
+      <option value="5x5">5x5</option>
+    </select>
+          <br><br>
+          <label>Risk Disposition</label>
+          <select id="LEOSLTHLxCL">
+    <option value="Accepted">Accepted</option>
+      <option value="Accepted With Monitoring">Accepted With Monitoring</option>
+      <option value="Accepted with Optimization">Accepted with Optimization</option>
+      <option value="Requires Mitigation">Requires Mitigation</option>
+      <option value="Requires Mitigation/Standard Refinement">Requires Mitigation/Standard Refinement</option>
+            <option value="Requires Characterization">Requires Characterization</option>
+      <option value="N/A">N/A</option>
+    </select>
+          <p>LxC Driver for Likelihood </p>
+            <textarea cols="50" type="text" id="LEOSLTHLxCDL"></textarea>
+          <p>LxC Driver for Consequences</p>
+          <textarea cols="50" type="text" id="LEOSLTHLxCDC"></textarea>
+          <p>Rationale for Risk Disposition</p>
+            <textarea cols="50" type="text" id="LEOSLTHRRD"></textarea>
+          <p>DRM Specific Assumptions</p>
+            <textarea cols="50" type="text" id="LEOSLTHDSA"></textarea>
+            <br><br>
+            <label>Level of Evidence (LOE)</label>
+              <select id="LEOSLTHLxCLoE">
+                <option value="1 - Strong">1-Strong</option>
+                <option value="2 - Moderate">2-Moderate</option>
+                <option value="3 - Weak">3-Weak</option>
+                <option value="4 - Speculative">4-Speculative</option>
+
+              </select>
+    <br><br><br>
+    <h2>Low Earth Orbit</h2>
+      <h3>Long (30 d - 1 yr)</h3>
+        <h4>In Mission Operations</h4>
+          <label >LxC</label>
+          <select id="LEOLIMOLxC">
+    <option value="1x1">1x1</option>
+      <option value="1x2">1x2</option>
+      <option value="1x3">1x3</option>
+      <option value="1x4">1x4</option>
+      <option value="1x5">1x5</option>
+      <option value="2x1">2x1</option>
+      <option value="2x2">2x2</option>
+      <option value="2x3">2x3</option>
+      <option value="2x4">2x4</option>
+      <option value="2x5">2x5</option>
+      <option value="3x1">3x1</option>
+      <option value="3x2">3x2</option>
+      <option value="3x3">3x3</option>
+      <option value="3x4">3x4</option>
+      <option value="3x5">3x5</option>
+      <option value="4x1">4x1</option>
+      <option value="4x2">4x2</option>
+      <option value="4x3">4x3</option>
+      <option value="4x4">4x4</option>
+      <option value="4x5">4x5</option>
+      <option value="5x1">5x1</option>
+      <option value="5x2">5x2</option>
+      <option value="5x3">5x3</option>
+      <option value="5x4">5x4</option>
+      <option value="5x5">5x5</option>
+    </select>
+        <br><br>
+        <label>Risk Disposition</label>
+        <select id="LEOLIMOLxCL">
+    <option value="Accepted">Accepted</option>
+      <option value="Accepted With Monitoring">Accepted With Monitoring</option>
+      <option value="Accepted with Optimization">Accepted with Optimization</option>
+      <option value="Requires Mitigation">Requires Mitigation</option>
+      <option value="Requires Mitigation/Standard Refinement">Requires Mitigation/Standard Refinement</option>
+          <option value="Requires Characterization">Requires Characterization</option>
+      <option value="N/A">N/A</option>
+    </select>
+          <p>LxC Driver for Likelihood </p>
+            <textarea cols="50" type="text" id="LEOLIMOLxCDL"></textarea>
+          <p>LxC Driver for Consequences</p>
+          <textarea cols="50" type="text" id="LEOLIMOLxCDC"></textarea>
+          <p>Rationale for Risk Disposition</p>
+            <textarea cols="50" type="text" id="LEOLIMORRD"></textarea>
+          <p>DRM Specific Assumptions</p>
+            <textarea cols="50" type="text" id="LEOLIMODSA"></textarea>
+          <br><br>
+          <label>Level of Evidence (LOE)</label>
+          <select id="LEOLIMOLxCLoE">
+            <option value="1 - Strong">1-Strong</option>
+            <option value="2 - Moderate">2-Moderate</option>
+            <option value="3 - Weak">3-Weak</option>
+            <option value="4 - Speculative">4-Speculative</option>
+
+          </select>
+    <br><br><br>
+    <h2>Low Earth Orbit</h2>
+      <h3>Long (30 d - 1 yr)</h3>
+        <h4>Long Term Health</h4>
+          <label >LxC</label>
+          <select id="LEOLLTHLxC">
+    <option value="1x1">1x1</option>
+      <option value="1x2">1x2</option>
+      <option value="1x3">1x3</option>
+      <option value="1x4">1x4</option>
+      <option value="1x5">1x5</option>
+      <option value="2x1">2x1</option>
+      <option value="2x2">2x2</option>
+      <option value="2x3">2x3</option>
+      <option value="2x4">2x4</option>
+      <option value="2x5">2x5</option>
+      <option value="3x1">3x1</option>
+      <option value="3x2">3x2</option>
+      <option value="3x3">3x3</option>
+      <option value="3x4">3x4</option>
+      <option value="3x5">3x5</option>
+      <option value="4x1">4x1</option>
+      <option value="4x2">4x2</option>
+      <option value="4x3">4x3</option>
+      <option value="4x4">4x4</option>
+      <option value="4x5">4x5</option>
+      <option value="5x1">5x1</option>
+      <option value="5x2">5x2</option>
+      <option value="5x3">5x3</option>
+      <option value="5x4">5x4</option>
+      <option value="5x5">5x5</option>
+    </select>
+          <br><br>
+          <label>Risk Disposition</label>
+          <select id="LEOLLTHLxCL">
+    <option value="Accepted">Accepted</option>
+      <option value="Accepted With Monitoring">Accepted With Monitoring</option>
+      <option value="Accepted with Optimization">Accepted with Optimization</option>
+      <option value="Requires Mitigation">Requires Mitigation</option>
+      <option value="Requires Mitigation/Standard Refinement">Requires Mitigation/Standard Refinement</option>
+            <option value="Requires Characterization">Requires Characterization</option>
+      <option value="N/A">N/A</option>
+    </select>
+          <p>LxC Driver for Likelihood </p>
+            <textarea cols="50" type="text" id="LEOLLTHLxCDL"></textarea>
+          <p>LxC Driver for Consequences</p>
+            <textarea cols="50" type="text" id="LEOLLTHLxCDC"></textarea>
+          <p>Rationale for Risk Disposition</p>
+            <textarea cols="50" type="text" id="LEOLLTHRRD"></textarea>
+          <p>DRM Specific Assumptions</p>
+            <textarea cols="50" type="text" id="LEOLLTHDSA"></textarea>
+          
+          <br><br>  
+          <label>Level of Evidence (LOE)</label>
+            <select id="LEOLLTHLxCLoE">
+              <option value="1 - Strong">1-Strong</option>
+              <option value="2 - Moderate">2-Moderate</option>
+              <option value="3 - Weak">3-Weak</option>
+              <option value="4 - Speculative">4-Speculative</option>
+
+            </select>
+    <br><br><br>
+    <h2>Lunar Orbital</h2>
+      <h3>Short (< 30 d)</h3>
+        <h4>In Mission Operations</h4>
+          <label >LxC</label>
+          <select id="LOSIMOLxC">
+    <option value="1x1">1x1</option>
+      <option value="1x2">1x2</option>
+      <option value="1x3">1x3</option>
+      <option value="1x4">1x4</option>
+      <option value="1x5">1x5</option>
+      <option value="2x1">2x1</option>
+      <option value="2x2">2x2</option>
+      <option value="2x3">2x3</option>
+      <option value="2x4">2x4</option>
+      <option value="2x5">2x5</option>
+      <option value="3x1">3x1</option>
+      <option value="3x2">3x2</option>
+      <option value="3x3">3x3</option>
+      <option value="3x4">3x4</option>
+      <option value="3x5">3x5</option>
+      <option value="4x1">4x1</option>
+      <option value="4x2">4x2</option>
+      <option value="4x3">4x3</option>
+      <option value="4x4">4x4</option>
+      <option value="4x5">4x5</option>
+      <option value="5x1">5x1</option>
+      <option value="5x2">5x2</option>
+      <option value="5x3">5x3</option>
+      <option value="5x4">5x4</option>
+      <option value="5x5">5x5</option>
+    </select>
+          <br><br>
+          <label>Risk Disposition</label>
+          <select id="LOSIMOLxCL">
+    <option value="Accepted">Accepted</option>
+      <option value="Accepted With Monitoring">Accepted With Monitoring</option>
+      <option value="Accepted with Optimization">Accepted with Optimization</option>
+      <option value="Requires Mitigation">Requires Mitigation</option>
+      <option value="Requires Mitigation/Standard Refinement">Requires Mitigation/Standard Refinement</option>
+            <option value="Requires Characterization">Requires Characterization</option>
+      <option value="N/A">N/A</option>
+    </select>
+          <p>LxC Driver for Likelihood </p>
+            <textarea cols="50" type="text" id="LOSIMOLxCDL"></textarea>
+          <p>LxC Driver for Consequences</p>
+          <textarea cols="50" type="text" id="LOSIMOLxCDC"></textarea>
+          <p>Rationale for Risk Disposition</p>
+            <textarea cols="50" type="text" id="LOSIMORRD"></textarea>
+          <p>DRM Specific Assumptions</p>
+            <textarea cols="50" type="text" id="LOSIMODSA"></textarea>
+          <br><br>  
+          <label>Level of Evidence (LOE)</label>
+          <select id="LOSIMOLxCLoE">
+            <option value="1 - Strong">1-Strong</option>
+            <option value="2 - Moderate">2-Moderate</option>
+            <option value="3 - Weak">3-Weak</option>
+            <option value="4 - Speculative">4-Speculative</option>
+
+          </select>
+    <br><br><br>
+    <h2>Lunar Orbital</h2>
+      <h3>Short (< 30 d)</h3>
+        <h4>Long Term Health</h4>
+          <label >LxC</label>
+          <select id="LOSLTHLxC">
+    <option value="1x1">1x1</option>
+      <option value="1x2">1x2</option>
+      <option value="1x3">1x3</option>
+      <option value="1x4">1x4</option>
+      <option value="1x5">1x5</option>
+      <option value="2x1">2x1</option>
+      <option value="2x2">2x2</option>
+      <option value="2x3">2x3</option>
+      <option value="2x4">2x4</option>
+      <option value="2x5">2x5</option>
+      <option value="3x1">3x1</option>
+      <option value="3x2">3x2</option>
+      <option value="3x3">3x3</option>
+      <option value="3x4">3x4</option>
+      <option value="3x5">3x5</option>
+      <option value="4x1">4x1</option>
+      <option value="4x2">4x2</option>
+      <option value="4x3">4x3</option>
+      <option value="4x4">4x4</option>
+      <option value="4x5">4x5</option>
+      <option value="5x1">5x1</option>
+      <option value="5x2">5x2</option>
+      <option value="5x3">5x3</option>
+      <option value="5x4">5x4</option>
+      <option value="5x5">5x5</option>
+    </select>
+          <br><br>
+          <label>Risk Disposition</label>
+          <select id="LOSLTHLxCL"><option value="Accepted">Accepted</option>
+              <option value="Accepted With Monitoring">Accepted With Monitoring</option>
+              <option value="Accepted with Optimization">Accepted with Optimization</option>
+              <option value="Requires Mitigation">Requires Mitigation</option>
+              <option value="Requires Mitigation/Standard Refinement">Requires Mitigation/Standard Refinement</option>
+            <option value="Requires Characterization">Requires Characterization</option>
+              <option value="N/A">N/A</option>
+            </select>
+          <p>LxC Driver for Likelihood </p>
+            <textarea cols="50" type="text" id="LOSLTHLxCDL"></textarea>
+          <p>LxC Driver for Consequences</p>
+          <textarea cols="50" type="text" id="LOSLTHLxCDC"></textarea>
+          <p>Rationale for Risk Disposition</p>
+            <textarea cols="50" type="text" id="LOSLTHRRD"></textarea>
+          <p>DRM Specific Assumptions</p>
+            <textarea cols="50" type="text" id="LOSLTHDSA"></textarea>
+          <br><br>  
+          <label>Level of Evidence (LOE)</label>
+          <select id="LOSLTHLxCLoE">
+            <option value="1 - Strong">1-Strong</option>
+            <option value="2 - Moderate">2-Moderate</option>
+            <option value="3 - Weak">3-Weak</option>
+            <option value="4 - Speculative">4-Speculative</option>
+          </select>
+    <br><br><br>
+          <h2>Lunar Orbital</h2>
+      <h3>Long (30 d - 1 yr)</h3>
+        <h4>In Mission Operations</h4>
+          <label >LxC</label>
+          <select id="LOLIMOLxC">
+    <option value="1x1">1x1</option>
+      <option value="1x2">1x2</option>
+      <option value="1x3">1x3</option>
+      <option value="1x4">1x4</option>
+      <option value="1x5">1x5</option>
+      <option value="2x1">2x1</option>
+      <option value="2x2">2x2</option>
+      <option value="2x3">2x3</option>
+      <option value="2x4">2x4</option>
+      <option value="2x5">2x5</option>
+      <option value="3x1">3x1</option>
+      <option value="3x2">3x2</option>
+      <option value="3x3">3x3</option>
+      <option value="3x4">3x4</option>
+      <option value="3x5">3x5</option>
+      <option value="4x1">4x1</option>
+      <option value="4x2">4x2</option>
+      <option value="4x3">4x3</option>
+      <option value="4x4">4x4</option>
+      <option value="4x5">4x5</option>
+      <option value="5x1">5x1</option>
+      <option value="5x2">5x2</option>
+      <option value="5x3">5x3</option>
+      <option value="5x4">5x4</option>
+      <option value="5x5">5x5</option>
+    </select>
+          <br><br>
+          <label>Risk Disposition</label>
+          <select id="LOLIMOLxCL">
+    <option value="Accepted">Accepted</option>
+      <option value="Accepted With Monitoring">Accepted With Monitoring</option>
+      <option value="Accepted with Optimization">Accepted with Optimization</option>
+      <option value="Requires Mitigation">Requires Mitigation</option>
+      <option value="Requires Mitigation/Standard Refinement">Requires Mitigation/Standard Refinement</option>
+            <option value="Requires Characterization">Requires Characterization</option>
+      <option value="N/A">N/A</option>
+    </select>
+          <p>LxC Driver for Likelihood </p>
+            <textarea cols="50" type="text" id="LOLIMOLxCDL"></textarea>
+            <p>LxC Driver for Consequences</p>
+            <textarea cols="50" type="text" id="LOLIMOLxCDC"></textarea>
+            <p>Rationale for Risk Disposition</p>
+              <textarea cols="50" type="text" id="LOLIMORRD"></textarea>
+            <p>DRM Specific Assumptions</p>
+              <textarea cols="50" type="text" id="LOLIMODSA"></textarea>
+            <br><br>  
+            <label>Level of Evidence (LOE)</label>
+            <select id="LOLIMOLxCLoE">
+              <option value="1 - Strong">1-Strong</option>
+              <option value="2 - Moderate">2-Moderate</option>
+              <option value="3 - Weak">3-Weak</option>
+              <option value="4 - Speculative">4-Speculative</option>
+            </select>
+    <br><br><br>
+        <h2>Lunar Orbital</h2>
+    <h3>Long (30 d - 1 yr)</h3>
+        <h4>Long Term Health</h4>
+          <label >LxC</label>
+          <select id="LOLLTHLxC">
+    <option value="1x1">1x1</option>
+      <option value="1x2">1x2</option>
+      <option value="1x3">1x3</option>
+      <option value="1x4">1x4</option>
+      <option value="1x5">1x5</option>
+      <option value="2x1">2x1</option>
+      <option value="2x2">2x2</option>
+      <option value="2x3">2x3</option>
+      <option value="2x4">2x4</option>
+      <option value="2x5">2x5</option>
+      <option value="3x1">3x1</option>
+      <option value="3x2">3x2</option>
+      <option value="3x3">3x3</option>
+      <option value="3x4">3x4</option>
+      <option value="3x5">3x5</option>
+      <option value="4x1">4x1</option>
+      <option value="4x2">4x2</option>
+      <option value="4x3">4x3</option>
+      <option value="4x4">4x4</option>
+      <option value="4x5">4x5</option>
+      <option value="5x1">5x1</option>
+      <option value="5x2">5x2</option>
+      <option value="5x3">5x3</option>
+      <option value="5x4">5x4</option>
+      <option value="5x5">5x5</option>
+    </select>
+          <br><br>
+          <label>Risk Disposition</label>
+          <select id="LOLLTHLxCL">
+    <option value="Accepted">Accepted</option>
+      <option value="Accepted With Monitoring">Accepted With Monitoring</option>
+      <option value="Accepted with Optimization">Accepted with Optimization</option>
+      <option value="Requires Mitigation">Requires Mitigation</option>
+      <option value="Requires Mitigation/Standard Refinement">Requires Mitigation/Standard Refinement</option>
+            <option value="Requires Characterization">Requires Characterization</option>
+      <option value="N/A">N/A</option>
+    </select>
+          <p>LxC Driver for Likelihood </p>
+            <textarea cols="50" type="text" id="LOLLTHLxCDL"></textarea>
+          <p>LxC Driver for Consequences</p>
+          <textarea cols="50" type="text" id="LOLLTHLxCDC"></textarea>
+          <p>Rationale for Risk Disposition</p>
+            <textarea cols="50" type="text" id="LOLLTHRRD"></textarea>
+          <p>DRM Specific Assumptions</p>
+            <textarea cols="50" type="text" id="LOLLTHDSA"></textarea>
+          <br><br>  
+          <label>Level of Evidence (LOE)</label>
+          <select id="LOLLTHLxCLoE">
+            <option value="1 - Strong">1-Strong</option>
+            <option value="2 - Moderate">2-Moderate</option>
+            <option value="3 - Weak">3-Weak</option>
+            <option value="4 - Speculative">4-Speculative</option>
+          </select>
+    <br><br><br>
+    <h2>Lunar Orbital + Surface</h2>
+      <h3>Short (< 30 d)</h3>
+        <h4>In Mission Operations</h4>
+          <label >LxC</label>
+          <select id="LOSSIMOLxC">
+    <option value="1x1">1x1</option>
+      <option value="1x2">1x2</option>
+      <option value="1x3">1x3</option>
+      <option value="1x4">1x4</option>
+      <option value="1x5">1x5</option>
+      <option value="2x1">2x1</option>
+      <option value="2x2">2x2</option>
+      <option value="2x3">2x3</option>
+      <option value="2x4">2x4</option>
+      <option value="2x5">2x5</option>
+      <option value="3x1">3x1</option>
+      <option value="3x2">3x2</option>
+      <option value="3x3">3x3</option>
+      <option value="3x4">3x4</option>
+      <option value="3x5">3x5</option>
+      <option value="4x1">4x1</option>
+      <option value="4x2">4x2</option>
+      <option value="4x3">4x3</option>
+      <option value="4x4">4x4</option>
+      <option value="4x5">4x5</option>
+      <option value="5x1">5x1</option>
+      <option value="5x2">5x2</option>
+      <option value="5x3">5x3</option>
+      <option value="5x4">5x4</option>
+      <option value="5x5">5x5</option>
+    </select>
+          <br><br>
+          <label>Risk Disposition</label>
+          <select id="LOSSIMOLxCL">
+    <option value="Accepted">Accepted</option>
+      <option value="Accepted With Monitoring">Accepted With Monitoring</option>
+      <option value="Accepted with Optimization">Accepted with Optimization</option>
+      <option value="Requires Mitigation">Requires Mitigation</option>
+      <option value="Requires Mitigation/Standard Refinement">Requires Mitigation/Standard Refinement</option>
+            <option value="Requires Characterization">Requires Characterization</option>
+      <option value="N/A">N/A</option>
+    </select>
+          <p>LxC Driver for Likelihood </p>
+            <textarea cols="50" type="text" id="LOSSIMOLxCDL"></textarea>
+          <p>LxC Driver for Consequences</p>
+          <textarea cols="50" type="text" id="LOSSIMOLxCDC"></textarea>
+          <p>Rationale for Risk Disposition</p>
+            <textarea cols="50" type="text" id="LOSSIMORRD"></textarea>
+          <p>DRM Specific Assumptions</p>
+            <textarea cols="50" type="text" id="LOSSIMODSA"></textarea> 
+    <br><br>
+    <label>Level of Evidence (LOE)</label>
+        <select id="LOSSIMOLxCLoE">
+          <option value="1 - Strong">1-Strong</option>
+          <option value="2 - Moderate">2-Moderate</option>
+          <option value="3 - Weak">3-Weak</option>
+          <option value="4 - Speculative">4-Speculative</option>
+        </select>
+    <br><br><br>
+    <h2>Lunar Orbital + Surface</h2>
+      <h3>Short (< 30 d)</h3>
+        <h4>Long Term Health</h4>
+          <label >LxC</label>
+          <select id="LOSSLTHLxC">
+    <option value="1x1">1x1</option>
+      <option value="1x2">1x2</option>
+      <option value="1x3">1x3</option>
+      <option value="1x4">1x4</option>
+      <option value="1x5">1x5</option>
+      <option value="2x1">2x1</option>
+      <option value="2x2">2x2</option>
+      <option value="2x3">2x3</option>
+      <option value="2x4">2x4</option>
+      <option value="2x5">2x5</option>
+      <option value="3x1">3x1</option>
+      <option value="3x2">3x2</option>
+      <option value="3x3">3x3</option>
+      <option value="3x4">3x4</option>
+      <option value="3x5">3x5</option>
+      <option value="4x1">4x1</option>
+      <option value="4x2">4x2</option>
+      <option value="4x3">4x3</option>
+      <option value="4x4">4x4</option>
+      <option value="4x5">4x5</option>
+      <option value="5x1">5x1</option>
+      <option value="5x2">5x2</option>
+      <option value="5x3">5x3</option>
+      <option value="5x4">5x4</option>
+      <option value="5x5">5x5</option>
+    </select>
+          <br><br>
+          <label>Risk Disposition</label>
+          <select id="LOSSLTHLxCL">
+    <option value="Accepted">Accepted</option>
+      <option value="Accepted With Monitoring">Accepted With Monitoring</option>
+      <option value="Accepted with Optimization">Accepted with Optimization</option>
+      <option value="Requires Mitigation">Requires Mitigation</option>
+      <option value="Requires Mitigation/Standard Refinement">Requires Mitigation/Standard Refinement</option>
+            <option value="Requires Characterization">Requires Characterization</option>
+      <option value="N/A">N/A</option>
+    </select>
+          <p>LxC Driver for Likelihood </p>
+            <textarea cols="50" type="text" id="LOSSLTHLxCDL"></textarea>
+          <p>LxC Driver for Consequences</p>
+          <textarea cols="50" type="text" id="LOSSLTHLxCDC"></textarea>
+          <p>Rationale for Risk Disposition</p>
+            <textarea cols="50" type="text" id="LOSSLTHRRD"></textarea>
+          <p>DRM Specific Assumptions</p>
+            <textarea cols="50" type="text" id="LOSSLTHDSA"> </textarea>
+          <br><br>  
+          <label>Level of Evidence (LOE)</label>
+          <select id="LOSSLTHLxCLoE">
+            <option value="1 - Strong">1-Strong</option>
+            <option value="2 - Moderate">2-Moderate</option>
+            <option value="3 - Weak">3-Weak</option>
+            <option value="4 - Speculative">4-Speculative</option>
+          </select>
+    <br><br><br>
+    <h2>Lunar Orbital + Surface</h2>
+      <h3>Long (30 d - 1 yr)</h3>
+        <h4>In Mission Operations</h4>
+          <label >LxC</label>
+          <select id="LOSLIMOLxC">
+    <option value="1x1">1x1</option>
+      <option value="1x2">1x2</option>
+      <option value="1x3">1x3</option>
+      <option value="1x4">1x4</option>
+      <option value="1x5">1x5</option>
+      <option value="2x1">2x1</option>
+      <option value="2x2">2x2</option>
+      <option value="2x3">2x3</option>
+      <option value="2x4">2x4</option>
+      <option value="2x5">2x5</option>
+      <option value="3x1">3x1</option>
+      <option value="3x2">3x2</option>
+      <option value="3x3">3x3</option>
+      <option value="3x4">3x4</option>
+      <option value="3x5">3x5</option>
+      <option value="4x1">4x1</option>
+      <option value="4x2">4x2</option>
+      <option value="4x3">4x3</option>
+      <option value="4x4">4x4</option>
+      <option value="4x5">4x5</option>
+      <option value="5x1">5x1</option>
+      <option value="5x2">5x2</option>
+      <option value="5x3">5x3</option>
+      <option value="5x4">5x4</option>
+      <option value="5x5">5x5</option>
+    </select>
+          <br><br>
+          <label>Risk Disposition</label>
+          <select id="LOSLIMOLxCL">
+    <option value="Accepted">Accepted</option>
+      <option value="Accepted With Monitoring">Accepted With Monitoring</option>
+      <option value="Accepted with Optimization">Accepted with Optimization</option>
+      <option value="Requires Mitigation">Requires Mitigation</option>
+      <option value="Requires Mitigation/Standard Refinement">Requires Mitigation/Standard Refinement</option>
+            <option value="Requires Characterization">Requires Characterization</option>
+      <option value="N/A">N/A</option>
+    </select>
+          <p>LxC Driver for Likelihood </p>
+            <textarea cols="50" type="text" id="LOSLIMOLxCDL"></textarea>
+          <p>LxC Driver for Consequences</p>
+          <textarea cols="50" type="text" id="LOSLIMOLxCDC"></textarea>
+          <p>Rationale for Risk Disposition</p>
+            <textarea cols="50" type="text" id="LOSLIMORRD"></textarea>
+          <p>DRM Specific Assumptions</p>
+            <textarea cols="50" type="text" id="LOSLIMODSA"></textarea> 
+        <br><br>  
+        <label>Level of Evidence (LOE)</label>
+          <select id="LOSLIMOLxCLoE">
+            <option value="1 - Strong">1-Strong</option>
+            <option value="2 - Moderate">2-Moderate</option>
+            <option value="3 - Weak">3-Weak</option>
+            <option value="4 - Speculative">4-Speculative</option>
+          </select>
+    <br><br><br>
+    <h2>Lunar Orbital + Surface</h2>
+      <h3>Long (30 d - 1 yr)</h3>
+        <h4>Long Term Health</h4>
+          <label >LxC</label>
+          <select id="LOSLLTHLxC">
+    <option value="1x1">1x1</option>
+      <option value="1x2">1x2</option>
+      <option value="1x3">1x3</option>
+      <option value="1x4">1x4</option>
+      <option value="1x5">1x5</option>
+      <option value="2x1">2x1</option>
+      <option value="2x2">2x2</option>
+      <option value="2x3">2x3</option>
+      <option value="2x4">2x4</option>
+      <option value="2x5">2x5</option>
+      <option value="3x1">3x1</option>
+      <option value="3x2">3x2</option>
+      <option value="3x3">3x3</option>
+      <option value="3x4">3x4</option>
+      <option value="3x5">3x5</option>
+      <option value="4x1">4x1</option>
+      <option value="4x2">4x2</option>
+      <option value="4x3">4x3</option>
+      <option value="4x4">4x4</option>
+      <option value="4x5">4x5</option>
+      <option value="5x1">5x1</option>
+      <option value="5x2">5x2</option>
+      <option value="5x3">5x3</option>
+      <option value="5x4">5x4</option>
+      <option value="5x5">5x5</option>
+    </select>
+          <br><br>
+          <label>Risk Disposition</label>
+          <select id="LOSLLTHLxCL">
+    <option value="Accepted">Accepted</option>
+      <option value="Accepted With Monitoring">Accepted With Monitoring</option>
+      <option value="Accepted with Optimization">Accepted with Optimization</option>
+      <option value="Requires Mitigation">Requires Mitigation</option>
+      <option value="Requires Mitigation/Standard Refinement">Requires Mitigation/Standard Refinement</option>
+            <option value="Requires Characterization">Requires Characterization</option>
+      <option value="N/A">N/A</option>
+    </select>
+          <p>LxC Driver for Likelihood </p>
+            <textarea cols="50" type="text" id="LOSLLTHLxCDL"> </textarea>
+          <p>LxC Driver for Consequences</p>
+          <textarea cols="50" type="text" id="LOSLLTHLxCDC"></textarea>
+          <p>Rationale for Risk Disposition</p>
+            <textarea cols="50" type="text" id="LOSLLTHRRD"></textarea>
+          <p>DRM Specific Assumptions</p>
+            <textarea cols="50" type="text" id="LOSLLTHDSA"></textarea> 
+          <br><br>  
+          <label>Level of Evidence (LOE)</label>
+          <select id="LOSLLTHLxCLoE">
+            <option value="1 - Strong">1-Strong</option>
+            <option value="2 - Moderate">2-Moderate</option>
+            <option value="3 - Weak">3-Weak</option>
+            <option value="4 - Speculative">4-Speculative</option>
+          </select>
+    <br><br><br>
+    <h2>Mars</h2>
+      <h3>Preparatory (< 1 yr)</h3>
+        <h4>In Mission Operations</h4>
+          <label >LxC</label>
+          <select id="MPrIMOLxC">
+    <option value="1x1">1x1</option>
+      <option value="1x2">1x2</option>
+      <option value="1x3">1x3</option>
+      <option value="1x4">1x4</option>
+      <option value="1x5">1x5</option>
+      <option value="2x1">2x1</option>
+      <option value="2x2">2x2</option>
+      <option value="2x3">2x3</option>
+      <option value="2x4">2x4</option>
+      <option value="2x5">2x5</option>
+      <option value="3x1">3x1</option>
+      <option value="3x2">3x2</option>
+      <option value="3x3">3x3</option>
+      <option value="3x4">3x4</option>
+      <option value="3x5">3x5</option>
+      <option value="4x1">4x1</option>
+      <option value="4x2">4x2</option>
+      <option value="4x3">4x3</option>
+      <option value="4x4">4x4</option>
+      <option value="4x5">4x5</option>
+      <option value="5x1">5x1</option>
+      <option value="5x2">5x2</option>
+      <option value="5x3">5x3</option>
+      <option value="5x4">5x4</option>
+      <option value="5x5">5x5</option>
+    </select>
+          <br><br>
+          <label>Risk Disposition</label>
+          <select id="MPrIMOLxCL">
+    <option value="Accepted">Accepted</option>
+      <option value="Accepted With Monitoring">Accepted With Monitoring</option>
+      <option value="Accepted with Optimization">Accepted with Optimization</option>
+      <option value="Requires Mitigation">Requires Mitigation</option>
+      <option value="Requires Mitigation/Standard Refinement">Requires Mitigation/Standard Refinement</option>
+            <option value="Requires Characterization">Requires Characterization</option>
+      <option value="N/A">N/A</option>
+    </select>
+          <p>LxC Driver for Likelihood </p>
+            <textarea cols="50" type="text" id="MPrIMOLxCDL"></textarea>
+          <p>LxC Driver for Consequences</p>
+          <textarea cols="50" type="text" id="MPrIMOLxCDC"></textarea>
+          <p>Rationale for Risk Disposition</p>
+            <textarea cols="50" type="text" id="MPrIMORRD"></textarea>
+          <p>DRM Specific Assumptions</p>
+            <textarea cols="50" type="text" id="MPrIMODSA"></textarea> 
+          <br><br>  
+          <label>Level of Evidence (LOE)</label>
+          <select id="MPrIMOLxCLoE">
+            <option value="1 - Strong">1-Strong</option>
+            <option value="2 - Moderate">2-Moderate</option>
+            <option value="3 - Weak">3-Weak</option>
+            <option value="4 - Speculative">4-Speculative</option>
+          </select>
+    <br><br><br>
+    <h2>Mars</h2>
+      <h3>Preparatory (< 1 yr)</h3>
+        <h4>Long Term Health</h4>
+          <label >LxC</label>
+          <select id="MPrLTHLxC">
+    <option value="1x1">1x1</option>
+      <option value="1x2">1x2</option>
+      <option value="1x3">1x3</option>
+      <option value="1x4">1x4</option>
+      <option value="1x5">1x5</option>
+      <option value="2x1">2x1</option>
+      <option value="2x2">2x2</option>
+      <option value="2x3">2x3</option>
+      <option value="2x4">2x4</option>
+      <option value="2x5">2x5</option>
+      <option value="3x1">3x1</option>
+      <option value="3x2">3x2</option>
+      <option value="3x3">3x3</option>
+      <option value="3x4">3x4</option>
+      <option value="3x5">3x5</option>
+      <option value="4x1">4x1</option>
+      <option value="4x2">4x2</option>
+      <option value="4x3">4x3</option>
+      <option value="4x4">4x4</option>
+      <option value="4x5">4x5</option>
+      <option value="5x1">5x1</option>
+      <option value="5x2">5x2</option>
+      <option value="5x3">5x3</option>
+      <option value="5x4">5x4</option>
+      <option value="5x5">5x5</option>
+    </select>
+          <br><br>
+          <label>Risk Disposition</label>
+          <select id="MPrLTHLxCL">
+    <option value="Accepted">Accepted</option>
+      <option value="Accepted With Monitoring">Accepted With Monitoring</option>
+      <option value="Accepted with Optimization">Accepted with Optimization</option>
+      <option value="Requires Mitigation">Requires Mitigation</option>
+      <option value="Requires Mitigation/Standard Refinement">Requires Mitigation/Standard Refinement</option>
+            <option value="Requires Characterization">Requires Characterization</option>
+      <option value="N/A">N/A</option>
+    </select>
+          <p>LxC Driver for Likelihood </p>
+            <textarea cols="50" type="text" id="MPrLTHLxCDL"></textarea>
+          <p>LxC Driver for Consequences</p>
+          <textarea cols="50" type="text" id="MPrLTHLxCDC"></textarea>
+          <p>Rationale for Risk Disposition</p>
+            <textarea cols="50" type="text" id="MPrLTHRRD"></textarea>
+          <p>DRM Specific Assumptions</p>
+            <textarea cols="50" type="text" id="MPrLTHDSA"></textarea> 
+          <br><br>  
+          <label>Level of Evidence (LOE)</label>
+          <select id="MPrLTHLxCLoE">
+            <option value="1 - Strong">1-Strong</option>
+            <option value="2 - Moderate">2-Moderate</option>
+            <option value="3 - Weak">3-Weak</option>
+            <option value="4 - Speculative">4-Speculative</option>
+          </select>
+    <br><br><br>
+    <h2>Mars</h2>
+      <h3>Planetary (730 d - 1224 d)</h3>
+        <h4>In Mission Operations</h4>
+          <label >LxC</label>
+          <select id="MPlIMOLxC">
+    <option value="1x1">1x1</option>
+      <option value="1x2">1x2</option>
+      <option value="1x3">1x3</option>
+      <option value="1x4">1x4</option>
+      <option value="1x5">1x5</option>
+      <option value="2x1">2x1</option>
+      <option value="2x2">2x2</option>
+      <option value="2x3">2x3</option>
+      <option value="2x4">2x4</option>
+      <option value="2x5">2x5</option>
+      <option value="3x1">3x1</option>
+      <option value="3x2">3x2</option>
+      <option value="3x3">3x3</option>
+      <option value="3x4">3x4</option>
+      <option value="3x5">3x5</option>
+      <option value="4x1">4x1</option>
+      <option value="4x2">4x2</option>
+      <option value="4x3">4x3</option>
+      <option value="4x4">4x4</option>
+      <option value="4x5">4x5</option>
+      <option value="5x1">5x1</option>
+      <option value="5x2">5x2</option>
+      <option value="5x3">5x3</option>
+      <option value="5x4">5x4</option>
+      <option value="5x5">5x5</option>
+    </select>
+          <br><br>
+          <label>Risk Disposition</label>
+      <select id="MPlIMOLxCL">
+    <option value="Accepted">Accepted</option>
+      <option value="Accepted With Monitoring">Accepted With Monitoring</option>
+      <option value="Accepted with Optimization">Accepted with Optimization</option>
+      <option value="Requires Mitigation">Requires Mitigation</option>
+      <option value="Requires Mitigation/Standard Refinement">Requires Mitigation/Standard Refinement</option>
+        <option value="Requires Characterization">Requires Characterization</option>
+      <option value="N/A">N/A</option>
+    </select>
+          <p>LxC Driver for Likelihood </p>
+            <textarea cols="50" type="text" id="MPlIMOLxCDL"></textarea>
+          <p>LxC Driver for Consequences</p>
+          <textarea cols="50" type="text" id="MPlIMOLxCDC"></textarea>
+          <p>Rationale for Risk Disposition</p>
+            <textarea cols="50" type="text" id="MPlIMORRD"></textarea>
+          <p>DRM Specific Assumptions</p>
+            <textarea cols="50" type="text" id="MPlIMODSA"></textarea> 
+          <br><br>  
+          <label>Level of Evidence (LOE)</label>
+          <select id="MPlIMOLxCLoE">
+            <option value="1 - Strong">1-Strong</option>
+            <option value="2 - Moderate">2-Moderate</option>
+            <option value="3 - Weak">3-Weak</option>
+            <option value="4 - Speculative">4-Speculative</option>
+          </select>
+    <br><br><br>
+    <h2>Mars</h2>
+      <h3>Planetary (730 d - 1224 d)</h3>
+        <h4>Long Term Health</h4>
+          <label >LxC</label>
+          <select id=MPlLTHLxC>
+    <option value="1x1">1x1</option>
+      <option value="1x2">1x2</option>
+      <option value="1x3">1x3</option>
+      <option value="1x4">1x4</option>
+      <option value="1x5">1x5</option>
+      <option value="2x1">2x1</option>
+      <option value="2x2">2x2</option>
+      <option value="2x3">2x3</option>
+      <option value="2x4">2x4</option>
+      <option value="2x5">2x5</option>
+      <option value="3x1">3x1</option>
+      <option value="3x2">3x2</option>
+      <option value="3x3">3x3</option>
+      <option value="3x4">3x4</option>
+      <option value="3x5">3x5</option>
+      <option value="4x1">4x1</option>
+      <option value="4x2">4x2</option>
+      <option value="4x3">4x3</option>
+      <option value="4x4">4x4</option>
+      <option value="4x5">4x5</option>
+      <option value="5x1">5x1</option>
+      <option value="5x2">5x2</option>
+      <option value="5x3">5x3</option>
+      <option value="5x4">5x4</option>
+      <option value="5x5">5x5</option>
+    </select>
+          <br><br>
+          <label>Risk Disposition</label>
+          <select id="MPlLTHLxCL">
+            <option value="Accepted">Accepted</option>
+              <option value="Accepted With Monitoring">Accepted With Monitoring</option>
+              <option value="Accepted with Optimization">Accepted with Optimization</option>
+              <option value="Requires Mitigation">Requires Mitigation</option>
+              <option value="Requires Mitigation/Standard Refinement">Requires Mitigation/Standard Refinement</option>
+            <option value="Requires Characterization">Requires Characterization</option>
+              <option value="N/A">N/A</option>
+            </select>
+          <p>LxC Driver for Likelihood </p>
+            <textarea cols="50" type="text" id="MPlLTHLxCDL"></textarea>
+          <p>LxC Driver for Consequences</p>
+          <textarea cols="50" type="text" id="MPlLTHLxCDC"></textarea>
+          <p>Rationale for Risk Disposition</p>
+            <textarea cols="50" type="text" id="MPlLTHRRD"></textarea>
+          <p>DRM Specific Assumptions</p>
+            <textarea cols="50" type="text" id="MPlLTHDSA"></textarea>
+          <br><br>  
+          <label>Level of Evidence (LOE)</label>
+          <select id="MPlLTHLxCLoE">
+            <option value="1 - Strong">1-Strong</option>
+            <option value="2 - Moderate">2-Moderate</option>
+            <option value="3 - Weak">3-Weak</option>
+            <option value="4 - Speculative">4-Speculative</option>
+          </select>
+
+    </form>
+  <hr style="margin: 2em auto;height: 5px; background-color: #6ebbff; border: none;">
+      <div id="submitStuff">
+      <button type="button" onclick="submit()" id="submitb">Submit</button>
+      </div>
+
+  
+  <!-- <a href = "test.txt" download="test">
+      <button type="button">Download</button>
+  </a> -->
+  <p id="downlod"></p>
+  <p id="file"></p>
+  <script src="script.js"></script>
+</body>
+
+</html>
